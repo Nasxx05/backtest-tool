@@ -1,0 +1,21 @@
+# =============================================================
+# Python Dependencies for Backtest Tool Backend
+# =============================================================
+# Install with: pip install -r requirements.txt
+# =============================================================
+
+# --- Web Framework ---
+Flask==3.1.0                # Our web server
+flask-cors==5.0.1           # Allows frontend to talk to backend
+
+# --- Database ---
+psycopg2-binary==2.9.10     # PostgreSQL driver for Python
+SQLAlchemy==2.0.36          # Database ORM (makes database queries easier)
+
+# --- Data & Math ---
+pandas==2.2.3               # Data manipulation (tables, filtering, etc.)
+numpy==2.2.1                # Math calculations (averages, statistics, etc.)
+yfinance==0.2.51            # Fetches stock/crypto/forex data from Yahoo Finance
+
+# --- Configuration ---
+python-dotenv==1.0.1        # Loads .env file into environment variables
