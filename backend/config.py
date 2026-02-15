@@ -18,15 +18,16 @@ class Config:
     """All configuration settings live here."""
 
     # --- Database ---
-    # Build the database connection URL from individual pieces
+    # If a full DATABASE_URL is provided (e.g., from Neon or Render),
+    # use it directly. Otherwise, build it from individual pieces.
     DB_HOST = os.getenv("DATABASE_HOST", "localhost")
     DB_PORT = os.getenv("DATABASE_PORT", "5432")
     DB_NAME = os.getenv("DATABASE_NAME", "backtest_tool")
     DB_USER = os.getenv("DATABASE_USER", "postgres")
     DB_PASS = os.getenv("DATABASE_PASSWORD", "password")
 
-    # Full connection string that SQLAlchemy/psycopg2 uses
-    DATABASE_URL = (
+    DATABASE_URL = os.getenv(
+        "DATABASE_URL",
         f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     )
 

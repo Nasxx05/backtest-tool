@@ -17,5 +17,8 @@ pandas==2.2.3               # Data manipulation (tables, filtering, etc.)
 numpy==2.2.1                # Math calculations (averages, statistics, etc.)
 yfinance==0.2.51            # Fetches stock/crypto/forex data from Yahoo Finance
 
+# --- Production Server ---
+gunicorn==23.0.0             # Production WSGI server (used by Render/Heroku)
+
 # --- Configuration ---
 python-dotenv==1.0.1        # Loads .env file into environment variables

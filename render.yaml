@@ -1,0 +1,21 @@
+# Render Blueprint - tells Render how to deploy our backend.
+# See: https://docs.render.com/blueprint-spec
+
+services:
+  - type: web
+    name: backtest-tool-api
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt && pip install gunicorn
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: "0"
+      # Set these in the Render dashboard (not here, for security)
+      - key: DATABASE_URL
+        sync: false
+      - key: FLASK_SECRET_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
